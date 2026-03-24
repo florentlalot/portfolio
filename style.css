@@ -1,0 +1,140 @@
+:root {
+    --primary: #665f56;
+    --secondary: #f5f0e5;
+    --accent: #4a443d;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", Arial, sans-serif;
+}
+
+body {
+    background: var(--secondary);
+    color: var(--primary);
+    line-height: 1.7;
+}
+
+/* HEADER */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: var(--secondary);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: var(--primary);
+    font-weight: 500;
+}
+
+nav a:hover {
+    color: var(--accent);
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 120px 20px;
+}
+
+.hero h2 {
+    font-size: 2.4rem;
+    margin-bottom: 10px;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 24px;
+    background: var(--accent);
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn:hover {
+    opacity: 0.85;
+}
+
+/* SECTIONS */
+.section {
+    padding: 80px 40px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.section h2 {
+    margin-bottom: 20px;
+    color: var(--accent);
+}
+
+/* PROJECT GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,0.1);
+    transition: 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* ANIMATIONS */
+.fade {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s forwards;
+}
+
+.slide {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: slideUp 1s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: var(--primary);
+    color: white;
+    margin-top: 40px;
+}
