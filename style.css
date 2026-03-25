@@ -55,6 +55,10 @@ nav a:hover {
 }
 
 .hero h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+.hero h1 {
     font-size: 2.4rem;
     margin-bottom: 10px;
 }
@@ -77,13 +81,16 @@ nav a:hover {
 /* SECTIONS */
 .section {
     padding: 80px 40px;
-    max-width: 900px;
+    max-width: 1400px;
     margin: auto;
 }
 
 .section h2 {
     margin-bottom: 20px;
     color: var(--accent);
+    text-align: center;
+    font-size: 1.5rem;
+
 }
 
 /* PROJECT GRID */
@@ -106,7 +113,7 @@ nav a:hover {
 }
 
 /* ANIMATIONS */
-.fade {
+.entete {
     opacity: 0;
     transform: translateY(20px);
     animation: fadeIn 1s forwards;
