@@ -15,6 +15,7 @@ body {
     background: var(--secondary);
     color: var(--primary);
     line-height: 1.7;
+    font-family: Marianne;
 }
 
 /* HEADER */
