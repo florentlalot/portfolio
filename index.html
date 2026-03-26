@@ -1,100 +1,101 @@
-// Animation au scroll
-const elements = document.querySelectorAll('.fade, .slide');
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Florent Lalot – Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.animationPlayState = "running";
-        }
-    });
-});
+    <!-- HEADER -->
+    <header class="entete">
+        <div class="branding">
+            <h1 class="logo">Florent Lalot</h1>
+            <p>Né le 10 Juin 1990<br>
+            659 route des landettes 24260 Journiac<br>
+            06 71 74 85 78<br>
+            <a href="mailto:florent.lalot@gmail.com">florent.lalot@gmail.com</a>
+            </p>
+        </div>
+        <nav>
+            <a href="#about">À propos</a>
+            <a href="#projects">Projets</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
 
-elements.forEach(el => observer.observe(el));
+    <!-- HERO -->
+    <section class="hero entete">
+        <h1>Chargé de transition numérique</h1>
+        <p>Des compétences numériques au service de nouveaux projets.</p>
+        <a class="btn" href="#projects">Voir mes projets</a>
+    </section>
 
+    <!-- ABOUT -->
+    <section id="about" class="hero entete">
+        <h2>À propos</h2>
+        <p>
+                    Fort d’un parcours riche et polyvalent, je mets mes savoir-faire techniques au service d’initiatives innovantes.<br><br>
+                    Chaque mission me permet de mettre les outils numériques au service de l’efficacité opérationnelle.<br><br>
+                    Aujourd’hui, je m’engage dans une nouvelle dynamique professionnelle, prêt à relever les défis du développement web, de la data, du cloud ou de la cybersécurité.<br><br>
+                    Mon objectif : contribuer activement à des projets porteurs de sens, en m’appuyant sur mes expériences passées et une volonté constante d’apprentissage.
+                </p>
+    </section>
 
-// -------------------------
-// CARROUSEL
-// -------------------------
+    <!-- PROJECTS -->
+    <section id="projects" class="section entete">
+        <h2>Découvrez mes projets numériques</h2>
 
-const track = document.querySelector(".carousel-track");
-const carouselSection = document.querySelector(".carousel-section"); // <-- AJOUT IMPORTANT
-let lastCategory = null; // <-- AJOUT IMPORTANT
+        <div class="grid">
 
+            <div class="card slide">
+                <h3>Informatique décisionnelle</h3><br>
+                <p>
+                    Création de rapports sur mesure et tableaux de bord clairs et dynamiques pour une prise de décision rapide et éclairée :<br><br>
+                    - Incluant l’analyse des indicateurs clés de performance (KPI) liés à l’activité commerciale,<br><br>
+                    - Une analyse précise des achats,<br><br>
+                    - L’évaluation de la performance des collaborateurs.<br><br>
+                </p>
+            </div>
 
-const images = {
-    decisionnelle: [
-        "img/decisionnelle1.png",
-        "img/decisionnelle2.png",
-        "img/decisionnelle3.png",
-        "img/decisionnelle4.png",
-        "img/decisionnelle5.png",
-        "img/decisionnelle6.png",
-        "img/decisionnelle7.png",
-        "img/decisionnelle8.png",
-        "img/decisionnelle9.png"
-    ],
-    gestion: [
-        "img/gestion1.png",
-        "img/gestion2.png",
-        "img/gestion3.png",
-        "img/gestion4.png",
-        "img/gestion5.png",
-        "img/gestion6.png",
-        "img/gestion7.png",
-        "img/gestion8.png",
-        "img/gestion9.png"
-    ],
-    communication: [
-        "img/communication1.png",
-        "img/communication2.png",
-        "img/communication3.png",
-        "img/communication4.png",
-        "img/communication5.png"
-    ]
-};
+            <div class="card slide">
+                <h3>Informatique de gestion</h3><br>
+                <p>
+                    Suivi opérationnel des outils métiers.<br><br>
+                    Collaboration quotidienne avec l’éditeur des outils (ERP, portails webs) pour garantir la cohérence
+                    entre besoins utilisateurs et évolutions techniques.<br><br>
+                    Mise en place de bonnes pratiques d'utilisation, vérification des méthodes appliquées et création d’une bibliothèque pour centraliser les procédures et faciliter la transmission des savoirs.
+                </p>
+            </div>
 
+            <div class="card slide">
+                <h3>Communication numérique</h3><br>
+                <p>
+                    Création de vidéos pédagogiques pour expliquer les bonnes pratiques, valoriser les projets numériques
+                    et faciliter l’appropriation des outils.
+                </p>
+            </div>
 
-// Fonction qui charge les images
-function loadImages(type) {
-    track.innerHTML = ""; // reset
+        </div>
+    <!-- CARROUSEL -->
+    </section>
+    <section id="carousel" class="carousel-section fade">
+    <div class="carousel-container">
+        <div class="carousel-track"></div>
+    </div>
+    </section>
+    <!-- CONTACT -->
+    <section id="contact" class="section entete">
+        <h2>Contact</h2>
+        <p>Envie d’échanger ou de collaborer ?</p>
+        <a class="btn" href="mailto:florent.lalot@gmail.com">Me contacter</a>
+    </section>
 
-    images[type].forEach(src => {
-        const img = document.createElement("img");
-        img.src = src;
-        track.appendChild(img);
-    });
+    <footer>
+        <p>© 2026 Florent Lalot – Portfolio</p>
+    </footer>
 
-    // duplique les images pour un défilement infini
-    images[type].forEach(src => {
-        const img = document.createElement("img");
-        img.src = src;
-        track.appendChild(img);
-    });
-}
-
-
-// -------------------------
-// GESTION DU CLIC SUR LES CARDS
-// -------------------------
-
-document.querySelectorAll(".card").forEach(card => {
-    card.addEventListener("click", () => {
-
-        let category = null;
-
-        if (card.textContent.includes("décisionnelle")) category = "decisionnelle";
-        if (card.textContent.includes("gestion")) category = "gestion";
-        if (card.textContent.includes("Communication")) category = "communication";
-
-        // Si on clique sur la même card → on ferme le carrousel
-        if (category === lastCategory) {
-            carouselSection.classList.toggle("hidden");
-            return;
-        }
-
-        // Sinon → on charge les images et on affiche le carrousel
-        lastCategory = category;
-        loadImages(category);
-        carouselSection.classList.remove("hidden");
-    });
-});
+    <script src="script.js"></script>
+</body>
+</html>
