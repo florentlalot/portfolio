@@ -92,8 +92,12 @@ nav a:hover {
     font-size: 1.5rem;
 
 }
+.carousel-section.hidden {
+    display: none;
+}
 
-/* PROJECT GRID */
+
+/* GRID */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -105,12 +109,15 @@ nav a:hover {
     padding: 20px;
     border-radius: 10px;
     border: 1px solid rgba(0,0,0,0.1);
-    transition: 0.2s;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
+
 
 /* ANIMATIONS */
 .entete {
@@ -148,7 +155,41 @@ footer {
     margin-top: 40px;
 }
 
-/* MARIANNE THIN (100) */
+/* CARROUSEL */
+.carousel-section {
+    width: 100%;
+    max-width: 100%;
+    margin: 60px auto;
+    overflow: hidden;
+}
+
+.carousel-container {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.carousel-track {
+    display: flex;
+    gap: 20px;
+    animation: scroll 20s linear infinite;
+}
+
+.carousel-track img {
+    width: 450px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Animation défilement */
+@keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+}
+
+/* POLICE MARIANNE THIN (100) */
 @font-face {
     font-family: "Marianne";
     src: url("fonts/Marianne-Thin.woff2") format("woff2"),
